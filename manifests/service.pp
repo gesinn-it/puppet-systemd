@@ -66,7 +66,7 @@ define systemd::service (
     },
     onlyif => $ensure ? {
       present => "true",
-      default => $enabled_test_command,
+      default => "which systemctl >/dev/null && ${enabled_test_command}",
     },
     require => [
       File["${real_unit_path}/${servicename}.service"],
