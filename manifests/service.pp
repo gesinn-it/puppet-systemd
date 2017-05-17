@@ -1,6 +1,7 @@
 define systemd::service (
   $ensure          = present,
   $env             = {},
+  $env_file        = undef,
   $execstart,
   $execstartpre    = undef,
   $execstartpost   = undef,

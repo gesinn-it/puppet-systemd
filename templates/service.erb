@@ -17,6 +17,9 @@ After=<%= @after.sort.join(' ') %>
 <% end -%>
 
 [Service]
+<% if defined?(@env_file) -%>
+EnvironmentFile=<%= @env_file %>
+<% end -%>
 <% if defined?(@env) -%>
 <% @env.each do |(k,v)| -%>
 Environment=<%= k %>=<%= v %>
