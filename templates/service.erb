@@ -17,6 +17,11 @@ After=<%= @after.sort.join(' ') %>
 <% end -%>
 
 [Service]
+<% if defined?(@env) -%>
+<% @env.each do |(k,v)| -%>
+Environment=<%= k %>=<%= v %>
+<% end -%>
+<% end -%>
 ExecStart=<%= @execstart %>
 <% if defined?(@execstartpre) -%>
 ExecStartPre=<%= @execstartpre %>
